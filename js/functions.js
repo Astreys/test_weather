@@ -106,7 +106,8 @@ function splitByDays(rawData){
 // calculate day difference to split entire array into separate days
 function getDateDiff(dateEarlier, dateLater) {
     var one_day=1000*60*60*24
-    return (  Math.round((  (dateLater.getTime() + 1000*60*60*6) - dateEarlier.getTime())/one_day)  );
+    //return (  Math.round((  (dateLater.getTime() + 1000*60*60*6) - dateEarlier.getTime())/one_day)  );
+    return (  Math.round((  (dateLater.getTime() + 1000*60*60*12) - dateEarlier.getTime())/one_day)  );
 }
 
 
