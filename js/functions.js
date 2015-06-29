@@ -104,8 +104,11 @@ function splitByDays(rawData){
 
 // calculate day difference to split entire array into separate days
 function getDateDiff(dateEarlier, dateLater) {
-    var one_day=1000*60*60*24
-    return (  Math.round((  (dateLater.getTime() - 1000*60*60*2) - dateEarlier.getTime())/one_day)  );
+    var one_day=1000*60*60*24,
+        d = new Date(),
+        timeShift = (d.getHours() - 12)*1000*60*60;
+
+    return (  Math.round((  (dateLater.getTime() + timeShift) - dateEarlier.getTime())/one_day)  );
 }
 
 
@@ -125,6 +128,7 @@ function timeConverter(UNIX_timestamp){
     return time;
 }
 
+
 // get object key by value
 function getKey(obj, value){
     for(var key in obj){
@@ -134,6 +138,7 @@ function getKey(obj, value){
     }
     return null;
 }
+
 
 // Auxiliary checks if object is empty
 function isEmpty(obj) {
