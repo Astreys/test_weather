@@ -59,18 +59,19 @@ function processDays(daysArr, city){
     }
 
     /* Returning Schema:
-    var weatherObj = {
-        'city' : { 'name': '' },
-        'days' : [{
-            'dayDetails' : {
-            	'date': 'June, 28'
-                'min': 0,
-                'max': 0,
-                'condition': 'sunny',
-                'details': daysArr[i]
-            }
-        }]
-    };
+            weatherObj
+                |
+                |--- 'city'
+                |       |--- name: 'Gotham'
+                |
+                ---- 'days'
+                        |--- 'dayDetails'
+                                |
+                                |--- date      :  'June, 28'
+                                |--- min       :  0
+                                |--- max       :  0
+                                |--- condition :  'sunny'
+                                ---- details   :  daysArr[i]
     */
     return weatherObj;
 }
