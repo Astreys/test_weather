@@ -1,0 +1,376 @@
+/* mixins.less */
+
+// Sizing shortcuts
+// -------------------------
+.size (@height, @width) {
+	width: @width;
+	height: @height;
+}
+.square (@size) {
+ 	.size(@size, @size);
+}
+
+// Text overflow
+// -------------------------
+// Requires inline-block or block for proper styling
+.text-overflow () {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Clearfix
+// --------
+// For clearing floats like a boss h5bp.com/q
+.clearfix () {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+// CSS3 PROPERTIES
+// --------------------------------------------------
+
+.text-shadow (@string: 0 1px 3px rgba(0, 0, 0, 0.25)) {
+    text-shadow: @string;
+}
+.text-shadow-filter (@string: 0 1px 3px #333333, @color: #333333, @direction: 180, @strength: 3) {
+    text-shadow: @string;
+    filter:~"progid:DXImageTransform.Microsoft.Shadow(Color=@{color}, Direction=@{direction}, Strength=@{strength})";
+}
+.box-shadow (@string) {
+    -webkit-box-shadow: @string;
+    -moz-box-shadow: @string;
+    box-shadow: @string;
+}
+.drop-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
+    -webkit-box-shadow: @x @y @blur @spread rgba(0, 0, 0, @alpha);
+    -moz-box-shadow: @x @y @blur @spread rgba(0, 0, 0, @alpha);
+    box-shadow: @x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+.inner-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
+    -webkit-box-shadow: inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+    -moz-box-shadow: inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+    box-shadow: inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+
+.box-sizing (@type: border-box) {
+    -webkit-box-sizing: @type;
+    -moz-box-sizing: @type;
+    -ms-box-sizing: @type;
+    box-sizing: @type;
+}
+
+.bordered (@top: 0, @right: 0, @bottom: 0, @left: 0) {
+    border-top: @top;
+    border-right: @right;
+    border-bottom: @bottom;
+    border-left: @left;
+}
+
+.background-clip (@clip) {
+    -webkit-background-clip: @clip;
+    -moz-background-clip: @clip;
+    background-clip: @clip;
+}
+
+.background-size (@size){
+    -webkit-background-size: @size;
+    -moz-background-size: @size;
+    -o-background-size: @size;
+    background-size: @size;
+}
+
+// for selecting text on the page
+.user-select (@select) {
+    -webkit-user-select: @select;
+    -moz-user-select: @select;
+    -ms-user-select: @select;
+    -o-user-select: @select;
+    user-select: @select;
+}
+
+.border-radius (@radius: 6px) {
+	// -webkit-border-radius:@radius;
+    // -khtml-border-radius:@radius;
+    // -moz-border-radius:@radius;
+    border-radius:@radius;
+	.background-clip(padding-box);
+}
+
+// all border corners
+.border-radiuses (@topleft: 0, @topright: 0, @bottomright: 0, @bottomleft: 0) {
+    // -webkit-border-top-right-radius: @topright;
+    // -webkit-border-bottom-right-radius: @bottomright;
+    // -webkit-border-bottom-left-radius: @bottomleft;
+    // -webkit-border-top-left-radius: @topleft;
+
+    // -khtml-border-top-right-radius: @topright;
+    // -khtml-border-bottom-right-radius: @bottomright;
+    // -khtml-border-bottom-left-radius: @bottomleft;
+    // -khtml-border-top-left-radius: @topleft;
+
+    // -moz-border-radius-topright: @topright;
+    // -moz-border-radius-bottomright: @bottomright;
+    // -moz-border-radius-bottomleft: @bottomleft;
+    // -moz-border-radius-topleft: @topleft;
+
+    border-top-right-radius: @topright;
+    border-bottom-right-radius: @bottomright;
+    border-bottom-left-radius: @bottomleft;
+    border-top-left-radius: @topleft;
+
+	.background-clip(padding-box);
+}
+
+// top right corner only
+.border-top-right-radius (@topright: 0) {
+    -webkit-border-top-right-radius: @topright;
+    -khtml-border-top-right-radius: @topright;
+    -moz-border-radius-topright: @topright;
+    border-top-right-radius: @topright;
+	.background-clip(padding-box);
+}
+
+// bottom right corner only
+.border-bottom-right-radius (@bottomright: 0) {
+    -webkit-border-bottom-right-radius: @bottomright;
+    -khtml-border-bottom-right-radius: @bottomright;
+    -moz-border-radius-bottomright: @bottomright;
+    border-bottom-right-radius: @bottomright;
+	.background-clip(padding-box);
+}
+
+// bottom left corner only
+.border-bottom-left-radius (@bottomleft: 0) {
+    -webkit-border-bottom-left-radius: @bottomleft;
+    -khtml-border-bottom-left-radius: @bottomleft;
+    -moz-border-radius-bottomleft: @bottomleft;
+    border-bottom-left-radius: @bottomleft;
+	.background-clip(padding-box);
+}
+
+// top left corner only
+.border-top-left-radius (@topleft: 0) {
+    -webkit-border-top-left-radius: @topleft;
+    -khtml-border-top-left-radius: @topleft;
+    -moz-border-radius-topleft: @topleft;
+    border-top-left-radius: @topleft;
+	.background-clip(padding-box);
+}
+
+// for entire element transparency
+.opacity (@opacity: 0.5) {
+    @ms-opacity: @opacity * 100;
+    -webkit-opacity: @opacity;
+    -moz-opacity: @opacity;
+    opacity: @opacity;
+}
+
+// for background transparency only
+.transparent (@color: #FFFFFF, @alpha: 0.25) {
+    background: hsl(hue(@color), saturation(@color), lightness(@color));
+    background: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+}
+.transparent-filter (@color: #FFFFFF, @alpha: 0.25, @argb: ~"#3FFFFFFF") {
+    // Uses #AARRGGBB format. AA is 00-FF (instead of 0-1)
+    background: transparent;
+    filter:~"progid:DXImageTransform.Microsoft.gradient(startColorstr=@{argb},endColorstr=@{argb})";
+    zoom: 1;
+}
+
+// for blocks that have a background-color value
+.linear-gradient-quick (@origin: left, @alpha: 0.2) {
+	background-image: -webkit-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+	background-image: -moz-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+	background-image: -ms-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+	background-image: -o-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+	background-image: linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+}
+
+// top to bottom gradient
+.linear-gradient-top (@color: #f7f7f7, @start: #eee, @stop: #fff, @img: none) {
+    background: @color @img;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(@start), to(@stop));
+    background-image: -webkit-linear-gradient(top, @start, @stop);
+    background-image: -moz-linear-gradient(top, @start, @stop);
+    background-image: -ms-linear-gradient(top, @start, @stop);
+    background-image: -o-linear-gradient(top, @start, @stop);
+    background-image: linear-gradient(top, @start, @stop);
+}
+
+// top to bottom gradient for primary brand colour
+.linear-gradient-top-brand (@color: #f7f7f7, @light: 6%, @dark: 6%, @img: none) {
+    @start: lighten(@color, @light);
+    @stop: darken(@color, @dark);
+    background: @color @img;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(@start), to(@stop));
+    background-image: -webkit-linear-gradient(top, @start, @stop);
+    background-image: -moz-linear-gradient(top, @start, @stop);
+    background-image: -ms-linear-gradient(top, @start, @stop);
+    background-image: -o-linear-gradient(top, @start, @stop);
+    background-image: linear-gradient(top, @start, @stop);
+}
+
+// left to right gradient
+.linear-gradient-left (@color: #f7f7f7, @start: #eee, @stop: #fff, @img: none) {
+    background: @color @img;
+    background-image: -webkit-gradient(linear, left top, right top, from(@start), to(@stop));
+    background-image: -webkit-linear-gradient(left, @start, @stop);
+    background-image: -moz-linear-gradient(left, @start, @stop);
+    background-image: -ms-linear-gradient(left, @start, @stop);
+    background-image: -o-linear-gradient(left, @start, @stop);
+    background-image: linear-gradient(left, @start, @stop);
+}
+
+.animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
+    -webkit-animation: @name @duration @delay @ease;
+    -moz-animation: @name @duration @delay @ease;
+    -ms-animation: @name @duration @delay @ease;
+}
+
+.transition (@transition) {
+    -webkit-transition: @transition;
+    -moz-transition: @transition;
+    -ms-transition: @transition;
+    -o-transition: @transition;
+    transition: @transition;
+}
+
+.transform (@string){
+    -webkit-transform: @string;
+    -moz-transform: @string;
+    -ms-transform: @string;
+    -o-transform: @string;
+    transform: @string;
+}
+
+.scale (@factor) {
+    -webkit-transform: scale(@factor);
+    -moz-transform: scale(@factor);
+    -ms-transform: scale(@factor);
+    -o-transform: scale(@factor);
+    transform: scale(@factor);
+}
+
+.rotate (@deg) {
+    -webkit-transform: rotate(@deg);
+    -moz-transform: rotate(@deg);
+    -ms-transform: rotate(@deg);
+    -o-transform: rotate(@deg);
+    transform: rotate(@deg);
+}
+
+.skew (@deg, @deg2) {
+    -webkit-transform: skew(@deg, @deg2);
+    -moz-transform: skew(@deg, @deg2);
+    -ms-transform: skew(@deg, @deg2);
+    -o-transform: skew(@deg, @deg2);
+    transform: skew(@deg, @deg2);
+}
+
+.translate (@x, @y: 0) {
+    -webkit-transform: translate(@x, @y);
+    -moz-transform: translate(@x, @y);
+    -ms-transform: translate(@x, @y);
+    -o-transform: translate(@x, @y);
+    transform: translate(@x, @y);
+}
+
+.translate3d (@x, @y: 0, @z: 0) {
+    -webkit-transform: translate3d(@x, @y, @z);
+    -moz-transform: translate3d(@x, @y, @z);
+    -ms-transform: translate3d(@x, @y, @z);
+    -o-transform: translate3d(@x, @y, @z);
+    transform: translate3d(@x, @y, @z);
+}
+
+// Backface visibility
+// Prevent browsers from flickering when using CSS 3D transforms.
+// Default value is `visible`, but can be changed to `hidden
+// See git pull https://github.com/dannykeane/bootstrap.git backface-visibility for examples
+.backface-visibility (@visibility) {
+    -webkit-backface-visibility: @visibility;
+    -moz-backface-visibility: @visibility;
+    -ms-backface-visibility: @visibility;
+    backface-visibility: @visibility;
+}
+
+.perspective (@value: 1000) {
+    -webkit-perspective: @value;
+    -moz-perspective: @value;
+    -ms-perspective: @value;
+    perspective: @value;
+}
+
+.transform-origin (@x: center, @y: center) {
+    -webkit-transform-origin: @x @y;
+    -moz-transform-origin: @x @y;
+    -ms-transform-origin: @x @y;
+    -o-transform-origin: @x @y;
+    transform-origin: @x @y;
+}
+
+// @Font-Face
+// -------------------------
+.font-face (ignore, @family, @filename, @svghash, @weight: normal, @style: normal, @varient: normal) {
+    // nothing - intentionally
+}
+.font-face (default, @family, @filename, @svghash, @weight: normal, @style: normal, @varient: normal) {
+    font-family: "@{family}";
+    src: url("@{filename}.eot");
+    src: url("@{filename}.eot?#iefix") format("embedded-opentype"),
+         url("@{filename}.woff") format("woff"),
+         url("@{filename}.ttf") format("truetype"),
+         url("@{filename}.svg#@{svghash}") format("svg");
+    font-weight: @weight;
+    font-style: @style;
+	font-variant: @varient;
+}
+
+// @Font-Face
+// -------------------------
+.font-face-eot (ignore, @family, @filename, @svghash, @weight: normal, @style: normal, @varient: normal) {
+    // nothing - intentionally
+}
+.font-face-eot (default, @family, @filename, @svghash, @weight: normal, @style: normal, @varient: normal) {
+    font-family: "@{family}";
+    src: url("@{filename}.eot");
+    font-weight: @weight;
+    font-style: @style;
+    font-variant: @varient;
+}
+
+
+// Twitter Inline Form Enforcer
+// force a horizontal form into inline mode
+// equal to removing the form-horizontal class entirely
+.form-horizontal-inline () {
+    .form-horizontal .control-label {
+        float: none;
+        width: auto;
+        padding-top: 0;
+        text-align: left;
+    }
+
+    .form-horizontal .controls {
+        margin-left: 0;
+    }
+
+    .form-horizontal .control-list {
+        padding-top: 0;
+    }
+
+    .form-horizontal .form-actions {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

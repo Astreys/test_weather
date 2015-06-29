@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-8">
+
+    	<!-- SEARCH BOX -->
+        <div class="input-group input-group-xlg mar-t40">
+            <input type="text" class="form-control" placeholder="location..." ng-model="m.location" enter-submit>
+            <span class="input-group-btn">
+        		<button class="btn btn-default" type="button" ng-click="checkLocation()" ng-disabled="!m.location">
+        			<i class="fa fa-search"></i>
+        		</button>
+      		</span>
+        </div>
+
+        <!-- ERROR MESSAGE ON WRONG LOCATION -->
+        <div class="alert alert-dismissible alert-warning mar-t16" ng-show="m.errorMessage">
+		  	<button type="button" class="close" data-dismiss="alert">×</button>
+		  	<h4>Don't match any location</h4>
+		  	<ul>
+				<li>Make sure all words are spelled correctly.</li>
+				<li>Try different location.</li>
+				<li>Kupi kartu lapat</li>
+			</ul>
+		</div>
+    </div>
+    <div class="col-xs-2"></div>
+</div>
+
+<!-- LOADER -->
+<div class="loader" ng-show="m.loading">
+	<div id="circularG">
+	    <div id="circularG_1" class="circularG"></div>
+	    <div id="circularG_2" class="circularG"></div>
+	    <div id="circularG_3" class="circularG"></div>
+	    <div id="circularG_4" class="circularG"></div>
+	    <div id="circularG_5" class="circularG"></div>
+	    <div id="circularG_6" class="circularG"></div>
+	    <div id="circularG_7" class="circularG"></div>
+	    <div id="circularG_8" class="circularG"></div>
+	</div>
+</div>

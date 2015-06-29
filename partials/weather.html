@@ -1,0 +1,105 @@
+<!-- UNIT SELECTOR -->
+<div class="row">
+	<div class="col-xs-12">
+		<div class="btn-group btn-group-xs pull-right mar-t8" role="group">
+            <button type="button" class="btn btn-default" ng-class="{selected: m.units == 'metric'}" ng-click="changeUnits('metric')">Metric</button>
+            <button type="button" class="btn btn-default" ng-class="{selected: m.units == 'imperial'}" ng-click="changeUnits('imperial')">Imperial</button>
+        </div>
+    </div>
+</div>
+
+<!-- TITLE LOCATION AND SEARCH BOX-->
+<div class="row">
+	<div class="col-xs-8">
+		<h1>Weather for <strong>{{m.weatherdata.city.name}}</strong></h1>
+	</div>
+	<div class="col-xs-4">
+		<div class="input-group input-group-sm mar-t32">
+            <input type="text" class="form-control" placeholder="location..." ng-model="m.location" enter-submit>
+            <span class="input-group-btn">
+        		<button class="btn btn-default" type="button" ng-click="getWeather()"><i class="fa fa-search"></i></button>
+      		</span>
+        </div>
+	</div>
+</div>
+
+<!-- ERROR MESSAGE ON WRONG LOCATION -->
+<div class="row" ng-show="m.errorMessage">
+	<div class="col-xs-12">
+		<div class="alert alert-dismissible alert-warning mar-t16">
+		  	<button type="button" class="close" data-dismiss="alert">×</button>
+		  	<h4>Don't match any location</h4>
+		  	<ul>
+				<li>Make sure all words are spelled correctly.</li>
+				<li>Try different location.</li>
+				<li>Kupi kartu lapat</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<!-- WEATHER SUMMARY -->
+<div class="weather-summary">
+	<div class="row">
+		<div class="col-xs-2" ng-repeat="day in m.weatherdata.days">
+			<div class="col-day">
+				<h3>{{day.dayDetails.date}}</h3>
+				<div><img src="images/condition-{{day.dayDetails.condition}}.png"></div>
+				<div class="temp-Max">
+					<sup class="sup-sm">Max.</sup>
+					{{day.dayDetails.max}}
+					<sup ng-show="m.units == 'metric'">&#8451;</sup>
+				</div>
+				<div class="temp-Min">
+					<sup class="sup-sm">Min.</sup>
+					{{day.dayDetails.min}}
+					<sup ng-show="m.units == 'metric'">&#8451;</sup>
+				</div>
+
+				<div class="details-separator">
+					<a href="javasscript:void(0)" class="btn-moredetails" ng-click="toggleDetails()" ng-if="$last">
+						<i class="fa" ng-class="{'fa-angle-up': m.showDetails, 'fa-angle-down': !m.showDetails}"></i> Details
+					</a>
+				</div>
+
+				<div class="details" ng-show="m.showDetails">
+					<div ng-repeat="item in day.dayDetails.details">
+						<div class="row">
+							<div class="col-xs-12 details-title"><span class="bold">{{(item.dt*1000)  | date:"'at' h:mma"}}</span></div>
+						</div>
+						<div class="row">
+							<div class="col-xs-5 text-right">Temp:</div>
+							<div class="col-xs-7">{{Math.round(item.main.temp)}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-5 text-right">Humidity:</div>
+							<div class="col-xs-7">{{item.main.humidity}}%</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-5 text-right">Weather:</div>
+							<div class="col-xs-7">{{item.weather[0].description}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-5 text-right">Wind:</div>
+							<div class="col-xs-7">{{item.wind.speed}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- LOADER -->
+<div class="loader" ng-show="m.loading">
+	<div id="circularG">
+	    <div id="circularG_1" class="circularG"></div>
+	    <div id="circularG_2" class="circularG"></div>
+	    <div id="circularG_3" class="circularG"></div>
+	    <div id="circularG_4" class="circularG"></div>
+	    <div id="circularG_5" class="circularG"></div>
+	    <div id="circularG_6" class="circularG"></div>
+	    <div id="circularG_7" class="circularG"></div>
+	    <div id="circularG_8" class="circularG"></div>
+	</div>
+</div>

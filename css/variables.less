@@ -1,0 +1,114 @@
+/* variables.less */
+
+// --------------------------------------------------------------
+// GLOBAL VARIABLES
+
+// --------------------------------------------------------------
+// branding colours (websafe and source)
+
+@brand1: rgb(  0, 172, 205); 	// turquoise
+@brand2: rgb(  0, 100, 114); 	// dark gray
+@brand3: rgb(247, 146,  30);  	// orange
+@brand4: rgb( 36,  36,  36);  	//
+@brand5: transparent; 		 	//
+@brand6: rgb(217, 217, 217); 	// light gray
+@brand7: rgb(255, 246, 196); 	// light yellow
+
+// --------------------------------------------------------------
+// CSS3 media query break points
+
+// phone
+@max-phone: 479px;
+@min-phone: 480px;
+
+// tablet
+@max-tablet: 767px;
+@min-tablet: 768px;
+
+// desktop
+@max-desk: 979px;
+@min-desk: 980px;
+
+// widescreen
+@max-wide: 1199px;
+@min-wide: 1200px;
+
+// --------------------------------------------------------------
+// CSS3 media query statements
+@visible_phone_portrait: ~"(max-width: @{max-phone})";
+@visible_phone: ~"(max-width: @{max-tablet})";
+@visible_tablet: ~"(min-width: @{min-tablet}) and (max-width: @{max-desk})";
+@visible_desktop: ~"(min-width: @{min-desk})";
+@visible_desktop_only: ~"(min-width: @{min-desk}) and (max-width: @{max-wide})";
+@visible_wide: ~"(min-width: @{min-wide})";
+
+@hidden_phone_portrait: ~"(min-width: @{min-phone})";
+@hidden_phone: ~"(min-width: @{min-tablet})";
+@hidden_tablet: ~"(max-width: @{max-tablet}), (min-width: @{min-desk})";
+@hidden_desktop: ~"(max-width: @{max-desk})";
+@hidden_desktop_only: ~"(max-width: @{max-desk}), (min-width: @{min-desk})";
+@hidden_wide: ~"(max-width: @{max-wide})";
+
+
+// --------------------------------------------------------------
+// font families
+
+// font1-family
+@font1-mode: ignore; // default or ignore
+@font1-family: "Tahoma", "Verdana", "Geneva", "sans-serif";
+@font1-title: "Tahoma Webfont";
+@font1-filename: "fonts/tahoma-regular";
+@font1-svghash: "TahomaRegular";
+@font1-weight: normal;
+@font1-style: normal;
+@font1-varient: normal;
+
+// font2-family
+@font2-mode: default; // default or ignore
+@font2-family: "Tahoma Bold", "Tahoma Bold Webfont", "Verdana", "Geneva", "sans-serif";
+@font2-title: "Tahoma Bold Webfont";
+@font2-filename: "fonts/tahoma-bold";
+@font2-svghash: "TahomaBold";
+@font2-weight: bold;
+@font2-style: normal;
+@font2-varient: normal;
+
+// font3-family
+/*
+@font3-mode: ignore; // default or ignore
+@font3-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+@font3-title: "Helvetica";
+@font3-weight: normal;
+@font3-style: normal;
+@font3-varient: normal;
+*/
+
+// font5-family
+@font4-mode: default; // default or ignore
+@font4-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+@font4-title: "Palatino Bold Italic Webfont";
+@font4-filename: "fonts/palatino-bold-italic";
+@font4-svghash: "PalatinoBoldItalic";
+@font4-weight: bold;
+@font4-style: italic;
+@font4-varient: normal;
+
+// mono-spaced font-family
+@mono-font-family: "Lucida Console", Monaco, "Courier New", monospace;
+
+
+// Tooltips and popovers
+// -------------------------
+@tooltipColor:            #fff;
+@tooltipBackground:       #000;
+@tooltipArrowWidth:       5px;
+@tooltipArrowColor:       @tooltipBackground;
+
+@popoverBackground:       #fff;
+@popoverArrowWidth:       10px;
+@popoverArrowColor:       #fff;
+@popoverTitleBackground:  darken(@popoverBackground, 3%);
+
+// Special enhancement for popovers
+@popoverArrowOuterWidth:  @popoverArrowWidth + 1;
+@popoverArrowOuterColor:  rgba(0,0,0,.25);

@@ -1,0 +1,196 @@
+/* base.less */
+
+body, html {
+  height: 100%;
+}
+
+body {
+    background-color: #fff;
+    font-size: 14px;
+
+    // font smoothing
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: @brand1;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: @brand1;
+    }
+
+    &:link > i,
+    &:visited > i,
+    &:hover > i,
+    &:focus > i,
+    &:active > i {
+        // no underline for icons within anchors
+        text-decoration: none;
+    }
+}
+
+/* image captions
+.img-caption {
+    margin-top: 8px;
+    margin-bottom: 16px;
+    font-style: italic;
+    font-size: 12px;
+}
+
+// image alignments and padding
+.img-left {
+    float: left;
+    margin: 0 8px 0 0;
+    border: none;
+}
+.img-right {
+    float: right;
+    margin: 0 0 0 8px;
+    border: none;
+}
+.img-center {
+    float: none;
+    display: block;
+    margin: 0 auto 0 auto;
+
+}
+*/
+/* blockquotes
+blockquote {
+    margin: 16px;
+    padding: 16px;
+    background-color: @brand1;
+    line-height: 1.2em;
+    font-family: @font4-family;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+    color: #FFFFFF;
+}
+blockquote small {
+    display: block;
+    font-family: @font2-family;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+*/
+/* block text alignment
+blockquote.block-left,
+blockquote.pull-left {
+    // margin: 0 0 16px 16px;
+    text-align: left;
+}
+blockquote.block-center,
+blockquote.pull-center {
+    // margin: 0 16px 16px 16px;
+    text-align: center;
+}
+blockquote.block-right,
+blockquote.pull-right {
+    // margin: 0 16px 16px 0;
+    text-align: right;
+}
+*/
+// unstyled list
+.list-unstyled {
+    list-style: none outside none;
+    margin-left: 0;
+}
+
+/* horizontal rulers */
+hr {
+    margin:16px auto 16px auto;
+    height:1px;
+    border:0 none;
+    background: @brand6;
+}
+/*
+hr.double {
+    margin:16px auto 16px auto;
+    height:4px;
+    border-top:1px solid @brand6;
+    border-bottom:1px solid @brand6;
+    background:transparent;
+}
+hr.triple {
+    margin:16px auto 16px auto;
+    height:8px;
+    border-top:1px solid @brand6;
+    border-bottom:1px solid @brand6;
+    background:transparent;
+}
+*/
+/* headings
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-weight: normal;
+    line-height: normal;
+}
+h1, .h1 {
+    font-family: @font2-family;
+    font-size: 28px;
+    color: @brand4;
+    font-weight: bold;
+}
+h2, .h2 {
+    font-family: @font1-family;
+    font-size: 26px;
+    color: @brand4;
+}
+h3, .h3 {
+    font-family: @font1-family;
+    font-size: 22px;
+    color: @brand4;
+}
+h4, .h4 {
+    font-family: @font1-family;
+    font-size: 18px;
+    color: @brand4;
+}
+h5, .h5 {
+    font-family: @font1-family;
+    font-size: 16px;
+    color: @brand4;
+}
+h6, .h6 {
+    font-family: @font1-family;
+    font-size: 14px;
+    color: @brand4;
+}
+*/
+
+/* branding */
+.brand1 {
+    color: @brand1 !important;
+}
+.brand2 {
+    color: @brand2 !important;
+}
+.brand3 {
+    color: @brand3 !important;
+}
+.brand4 {
+    color: @brand4 !important;
+}
+.brand5 {
+    color: @brand5 !important;
+}
+.brand6 {
+    color: @brand6 !important;
+}
+
+.error {
+    color: #b94a48;
+}
+
+/* for fluid grid system
+.no-space [class*="span"] {
+    margin-left: 0;
+}
+*/
+.cursor-pointer {
+    cursor: pointer;
+}
