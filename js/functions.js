@@ -1,6 +1,7 @@
 /* functions.js */
 
-//
+// Process day's data to get average weather parameters
+// for main view
 function processDays(daysArr, city){
     var weatherObj = {
         'city' : { 'name': '' },
@@ -8,8 +9,6 @@ function processDays(daysArr, city){
     };
 
     weatherObj.city.name = city;
-
-    //console.log(daysArr);
 
     for (var i = 0; i < daysArr.length; i++) {
 
@@ -57,7 +56,6 @@ function processDays(daysArr, city){
         dayObj.dayDetails.details = daysArr[i];
 
         weatherObj.days.push(dayObj);
-        //console.log(dayObj);
     }
 
     /* Returning Schema:
@@ -106,12 +104,11 @@ function splitByDays(rawData){
 // calculate day difference to split entire array into separate days
 function getDateDiff(dateEarlier, dateLater) {
     var one_day=1000*60*60*24
-    //return (  Math.round((  (dateLater.getTime() + 1000*60*60*6) - dateEarlier.getTime())/one_day)  );
     return (  Math.round((  (dateLater.getTime() + 1000*60*60*12) - dateEarlier.getTime())/one_day)  );
 }
 
 
-//
+// convert timestamp to custom data format
 function timeConverter(UNIX_timestamp){
     var a = new Date(UNIX_timestamp*1000);
     var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -127,7 +124,7 @@ function timeConverter(UNIX_timestamp){
     return time;
 }
 
-//
+// get object key by value
 function getKey(obj, value){
     for(var key in obj){
         if(obj[key] == value){

@@ -132,8 +132,6 @@ app.controller('MainCtrl', function ($scope, $http, $filter, $location, shareDat
                     success(function(data, status, headers, config) {
                         if(data.cod != 404){
                             $scope.m.weatherdata = processDays(splitByDays(data), data.city.name);
-
-                            console.log($scope.m.weatherdata);
                             $scope.m.errorMessage = false;
                             $scope.m.loading = false;
                         } else {
@@ -178,9 +176,7 @@ app.controller('HeaderCtrl', function ($scope, shareDataService) {
     $scope.m.units = "metric";
 
     $scope.changeUnits = function(units){
-        //console.log(units);
         $scope.m.units = units;
-
         shareDataService.addObj(units);
     }
     */
