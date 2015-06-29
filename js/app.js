@@ -1,1 +1,1 @@
-var app = angular.module('contactListApp', ['ngAnimate', 'ngSanitize', 'mgcrea.ngStrap', 'ngRoute']);
+var app = angular.module('weatherApp', ['ngAnimate', 'ngSanitize', 'mgcrea.ngStrap', 'ngRoute']);
